@@ -15,7 +15,7 @@ class LobbiesController < ApplicationController
 
   # POST /lobbies
   def create
-    @lobby = Lobby.new(lobby_params.merge(ip_address: request.remote_ip))
+    @lobby = Lobby.new(lobby_params)
 
     if @lobby.save
       render json: @lobby, status: :created, location: @lobby
