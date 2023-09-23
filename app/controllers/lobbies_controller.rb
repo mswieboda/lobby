@@ -22,7 +22,7 @@ class LobbiesController < ApplicationController
 
   # POST /lobbies
   def create
-    @lobby = Lobby.new(lobby_params.merge(app_id: app.id))
+    @lobby = Lobby.new(lobby_params.merge(app_id: @app.id))
 
     if @lobby.save
       render json: @lobby, status: :created, location: @lobby
